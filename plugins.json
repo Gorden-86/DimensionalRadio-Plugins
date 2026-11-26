@@ -1,4 +1,16 @@
 {
-  "version": 2,
-  "plugins": []
+  "version": 3,
+  "plugins": [
+    {
+      "id": "bilibili",
+      "name": "哔哩哔哩视频源",
+      "description": "搜索 B 站视频，下载后直接当桌面场景。登录后可取 720P 以上。",
+      "author": "Dimensional Radio",
+      "version": "1.0.0",
+      "kind": "wallpaper",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "file": "DimensionalRadio.Plugins.Bilibili.dll",
+      "fileMd5": "6eb846ce009ce49f5551f07a7f963372"
+    }
+  ]
 }
