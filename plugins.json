@@ -1,6 +1,18 @@
 {
-  "version": 1,
+  "version": 2,
   "plugins": [
+    {
+      "id": "demo-theme",
+      "name": "示例样式包",
+      "description": "用来验证下载与 MD5 校验流程的示例条目，不含可执行代码。",
+      "author": "Dimensional Radio",
+      "version": "0.1.0",
+      "kind": "theme",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/demo-theme.zip",
+      "md5": "57bb911b477a7be7315c6378ab93dc9f",
+      "size": 445
+    },
     {
       "id": "bilibili-wallpaper",
       "name": "哔哩哔哩视频源",
