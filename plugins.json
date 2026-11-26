@@ -10,7 +10,29 @@
       "kind": "wallpaper",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Bilibili.dll",
-      "fileMd5": "6eb846ce009ce49f5551f07a7f963372"
+      "fileMd5": "6eb846ce009ce49f5551f07a7f963372",
+      "deps": [
+        {
+          "file": "QRCoder.dll",
+          "md5": "50f3c4e1f42753ed72d07138ac9b7a73"
+        },
+        {
+          "file": "System.Drawing.Common.dll",
+          "md5": "916949ef1ba93758bd98d58a6b278092"
+        },
+        {
+          "file": "Microsoft.Win32.SystemEvents.dll",
+          "md5": "52c8b8b9b9042e81ac37425279af8080"
+        },
+        {
+          "file": "Microsoft.Windows.SDK.NET.dll",
+          "md5": "a00b91c2e00b89e387705af95b72bd6e"
+        },
+        {
+          "file": "WinRT.Runtime.dll",
+          "md5": "edb1f8d15fe41838cd449141187ae032"
+        }
+      ]
     }
   ]
 }
