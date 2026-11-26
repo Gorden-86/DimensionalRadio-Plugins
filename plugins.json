@@ -32,7 +32,10 @@
           "file": "WinRT.Runtime.dll",
           "md5": "edb1f8d15fe41838cd449141187ae032"
         }
-      ]
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
+      "md5": "e58521146b7a519cf5556fe57703e49d",
+      "size": 6490933
     }
   ]
 }
