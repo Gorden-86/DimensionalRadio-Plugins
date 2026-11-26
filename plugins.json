@@ -1,4 +1,14 @@
 {
   "version": 1,
-  "plugins": []
+  "plugins": [
+    {
+      "id": "bilibili-wallpaper",
+      "name": "哔哩哔哩视频源",
+      "description": "搜索视频，生成内嵌播放器的网页场景，交给 Lively 当壁纸。",
+      "author": "占位示例",
+      "version": "0.1.0",
+      "kind": "wallpaper",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins"
+    }
+  ]
 }
