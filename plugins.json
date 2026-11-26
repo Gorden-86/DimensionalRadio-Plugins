@@ -36,6 +36,20 @@
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
       "md5": "e58521146b7a519cf5556fe57703e49d",
       "size": 6490933
+    },
+    {
+      "id": "ffprobe",
+      "name": "FFmpeg (ffprobe)",
+      "description": "读取视频时长用的外部工具，视频壁纸的进度对齐需要它。",
+      "author": "FFmpeg",
+      "version": "9.1",
+      "kind": "tool",
+      "homepage": "https://ffmpeg.org/",
+      "file": "ffprobe.exe",
+      "fileMd5": "b3025a42eeaa016d8c394d7c5116485e",
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/ffprobe-tool.zip",
+      "md5": "538888d3a964619767f8c7463aeffe0b",
+      "size": 40361432
     }
   ]
 }
