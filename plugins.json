@@ -36,11 +36,11 @@
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
       "md5": "5721afa612834d9164fc3ba42c0c7699",
       "size": 6797750,
-      "notes": "1.1.0：分P 逐个挑，可以先预览再下载；登录后能下 720P 以上。"
+      "notes": "1.1.0：可以搜索B站视频；登录后能下 720P 以上。"
     },
     {
       "id": "mpv",
-      "name": "视频运行时 (libmpv)",
+      "name": "libmpv",
       "description": "视频壁纸和选片预览用的播放引擎。没装的话视频场景用不了，图片和音频不受影响。",
       "author": "mpv.io",
       "version": "0.42.0",
