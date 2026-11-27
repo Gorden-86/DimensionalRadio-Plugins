@@ -41,7 +41,7 @@
     {
       "id": "mpv",
       "name": "libmpv",
-      "description": "视频壁纸和选片预览用的播放引擎。没装的话视频场景用不了，图片和音频不受影响。",
+      "description": "视频壁纸和预览用的播放引擎。",
       "author": "mpv.io",
       "version": "0.42.0",
       "kind": "runtime",
@@ -52,7 +52,7 @@
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/mpv-runtime.zip",
       "md5": "05edb1cd877840ea9b02fd8f6bc2d537",
       "size": 48696683,
-      "notes": "0.42.0：视频壁纸和预览的播放引擎。装到数据目录的 mpv 下，卸掉之后视频场景会停用，图片场景照常。"
+      "notes": "0.42.0：视频壁纸和预览用的播放引擎。"
     }
   ]
 }
