@@ -39,6 +39,32 @@
       "notes": "1.1.0：可以搜索B站视频；登录后能下 720P 以上。"
     },
     {
+      "id": "lyrics",
+      "name": "在线歌词",
+      "description": "按歌名和歌手找歌词，支持网易云、QQ 音乐、酷狗和 LRCLIB。",
+      "author": "Dimensional Radio",
+      "version": "1.0.0",
+      "kind": "lyrics",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "file": "DimensionalRadio.Plugins.Lyrics.dll",
+      "fileMd5": "1a5ba74c9e1bbf1dbd9f1c6fb075395f",
+      "deps": [
+        { "file": "Lyricify.Lyrics.Helper.dll", "md5": "cfe04e0b3ce3f546bdbd2265423f6418" },
+        { "file": "OpenccNetLib.dll", "md5": "1325aa7cae97ab7acae549ce34edaca1" },
+        { "file": "Newtonsoft.Json.dll", "md5": "adf3e3eecde20b7c9661e9c47106a14a" },
+        { "file": "ICSharpCode.SharpZipLib.dll", "md5": "900bf2b7812788efb97eb6b1b63814a0" },
+        { "file": "ChineseConverter.dll", "md5": "dd890dd2f1a46c36615ae03cb8ac5168" },
+        { "file": "System.Formats.Cbor.dll", "md5": "5567a5e9f24699540f580562a804dd20" },
+        { "file": "ZstdSharp.dll", "md5": "fad83206b5b3a7659e9ae57ffae1deeb" },
+        { "file": "Microsoft.Windows.SDK.NET.dll", "md5": "a00b91c2e00b89e387705af95b72bd6e" },
+        { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" }
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/lyrics-plugin.zip",
+      "md5": "f1855d14ea6ef6510df54c1c65c16797",
+      "size": 8125084,
+      "notes": "1.0.0：自动按网易云 → QQ 音乐 → 酷狗 → LRCLIB 找词，带逐字和译文。"
+    },
+    {
       "id": "mpv",
       "name": "libmpv",
       "description": "视频壁纸和预览用的播放引擎。",
