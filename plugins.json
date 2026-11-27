@@ -53,6 +53,30 @@
       "md5": "05edb1cd877840ea9b02fd8f6bc2d537",
       "size": 48696683,
       "notes": "0.42.0：视频壁纸和预览用的播放引擎。"
+    },
+    {
+      "id": "teal",
+      "name": "暗夜深青",
+      "description": "深青色的暗色配色。",
+      "author": "Dimensional Radio",
+      "version": "1.0.0",
+      "kind": "theme",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/theme-teal.zip",
+      "md5": "fbc192e57850bc2de9a89a7ac3e2089f",
+      "size": 386
+    },
+    {
+      "id": "violet",
+      "name": "暗夜紫罗兰",
+      "description": "紫色的暗色配色。",
+      "author": "Dimensional Radio",
+      "version": "1.0.0",
+      "kind": "theme",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/theme-violet.zip",
+      "md5": "c6cd0998f89c4edd713e31416bfb0575",
+      "size": 390
     }
   ]
 }

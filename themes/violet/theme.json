@@ -1,0 +1,21 @@
+{
+  "name": "暗夜紫罗兰",
+  "author": "Dimensional Radio",
+  "colors": {
+    "BgBrush": "#110F17",
+    "PanelBrush": "#191721",
+    "PanelAltBrush": "#221E2C",
+    "TextBrush": "#F2EFF9",
+    "MutedBrush": "#9A94AC",
+    "AccentBrush": "#B08BFF",
+    "AccentSoftBrush": "#2AB08BFF",
+    "BorderBrush": "#2F2A3D",
+    "DangerBrush": "#E0787D",
+    "OkBrush": "#7BC49A",
+    "HoverBrush": "#14FFFFFF",
+    "TrackBrush": "#1FFFFFFF",
+    "ScrollThumbBrush": "#3A3548",
+    "ScrollThumbHoverBrush": "#4C465C",
+    "OnAccentBrush": "#100D18"
+  }
+}

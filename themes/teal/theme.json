@@ -1,0 +1,21 @@
+{
+  "name": "暗夜深青",
+  "author": "Dimensional Radio",
+  "colors": {
+    "BgBrush": "#0D1313",
+    "PanelBrush": "#151D1C",
+    "PanelAltBrush": "#1D2726",
+    "TextBrush": "#EFF6F5",
+    "MutedBrush": "#8CA19E",
+    "AccentBrush": "#5FD3C8",
+    "AccentSoftBrush": "#2A5FD3C8",
+    "BorderBrush": "#293633",
+    "DangerBrush": "#E0787D",
+    "OkBrush": "#7BC49A",
+    "HoverBrush": "#14FFFFFF",
+    "TrackBrush": "#1FFFFFFF",
+    "ScrollThumbBrush": "#35403E",
+    "ScrollThumbHoverBrush": "#455350",
+    "OnAccentBrush": "#0A1211"
+  }
+}
