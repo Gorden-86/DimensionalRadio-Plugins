@@ -10,7 +10,7 @@
       "kind": "wallpaper",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Bilibili.dll",
-      "fileMd5": "6eb846ce009ce49f5551f07a7f963372",
+      "fileMd5": "afc956c71d0d24e27f5d71daad1aa53b",
       "deps": [
         {
           "file": "QRCoder.dll",
@@ -34,22 +34,25 @@
         }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
-      "md5": "e58521146b7a519cf5556fe57703e49d",
-      "size": 6490933
+      "md5": "ca76d8cecdcd5ef106bebb52b68d9c96",
+      "size": 6797665,
+      "notes": "1.0.0：搜索 B 站视频，下载后当桌面壁纸；登录后可下 720P 以上。"
     },
     {
-      "id": "ffprobe",
-      "name": "FFmpeg (ffprobe)",
-      "description": "读取视频时长用的外部工具，视频壁纸的进度对齐需要它。",
-      "author": "FFmpeg",
-      "version": "9.1",
-      "kind": "tool",
-      "homepage": "https://ffmpeg.org/",
-      "file": "ffprobe.exe",
-      "fileMd5": "b3025a42eeaa016d8c394d7c5116485e",
-      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/ffprobe-tool.zip",
-      "md5": "538888d3a964619767f8c7463aeffe0b",
-      "size": 40361432
+      "id": "mpv",
+      "name": "视频运行时 (libmpv)",
+      "description": "视频壁纸和选片预览用的播放引擎。没装的话视频场景用不了，图片和音频不受影响。",
+      "author": "mpv.io",
+      "version": "0.42.0",
+      "kind": "runtime",
+      "homepage": "https://mpv.io/",
+      "file": "libmpv-2.dll",
+      "fileMd5": "3f7a6954e813bc3ff12b40883dc29dfa",
+      "installTo": "mpv",
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/mpv-runtime.zip",
+      "md5": "05edb1cd877840ea9b02fd8f6bc2d537",
+      "size": 48696683,
+      "notes": "0.42.0：视频壁纸和预览的播放引擎。装到数据目录的 mpv 下，卸掉之后视频场景会停用，图片场景照常。"
     }
   ]
 }
