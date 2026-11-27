@@ -6,11 +6,11 @@
       "name": "哔哩哔哩视频源",
       "description": "搜索 B 站视频，下载后直接当桌面场景。登录后可取 720P 以上。",
       "author": "Dimensional Radio",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "wallpaper",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Bilibili.dll",
-      "fileMd5": "afc956c71d0d24e27f5d71daad1aa53b",
+      "fileMd5": "882d05a8a2e6dd2d75dd834e782ccb26",
       "deps": [
         {
           "file": "QRCoder.dll",
@@ -34,9 +34,9 @@
         }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
-      "md5": "ca76d8cecdcd5ef106bebb52b68d9c96",
-      "size": 6797665,
-      "notes": "1.0.0：搜索 B 站视频，下载后当桌面壁纸；登录后可下 720P 以上。"
+      "md5": "5721afa612834d9164fc3ba42c0c7699",
+      "size": 6797750,
+      "notes": "1.1.0：分P 逐个挑，可以先预览再下载；登录后能下 720P 以上。"
     },
     {
       "id": "mpv",
