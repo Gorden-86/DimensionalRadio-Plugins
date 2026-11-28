@@ -27,7 +27,8 @@
 
 2. 实现一个能力接口（见下），`Id` 全仓库唯一，小写短横线。
    **契约声明不用写**：SDK 包自带 build targets，编译时自动给程序集打上 `PluginContract` 声明。
-3. 用主程序仓库的 `scripts/pack-plugin.ps1` 打包发布（见文末）。
+3. csproj 里写 `<Authors>你的名字</Authors>`，开源许可窗口按它显示作者。
+4. 用主程序仓库的 `scripts/pack-plugin.ps1` 打包发布（见文末）。
 
 ## 契约版本怎么运作
 
@@ -36,6 +37,9 @@
 所以老插件不会炸出一堆 `Method not found`，只会得到一句「契约版本不一致」。
 
 - 声明数字由 SDK 自动注入（包里的 build targets），升级 SDK 包 = 声明跟着升级。
+- **分发许可也是自动注入**：程序集默认带 `PluginLicense = MIT`，csproj 里写
+  `<PluginLicense>Apache-2.0</PluginLicense>` 即可改成别的；它显示在插件中心卡片和开源许可窗口。
+  仓库清单的 `license` 字段必须跟它一致。
 - 给接口改签名、删成员 = 契约版本加一，同时升 SDK 包版本；旧插件被拒载，作者跟进升级。
 - 加**可选**能力接口（像 `IVideoPanelPlugin` 那样单独一个接口）不用动契约版本，老插件照样装。
 
