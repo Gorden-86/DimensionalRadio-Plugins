@@ -2,7 +2,7 @@
 
 次元电台的插件 = 一个实现 `IRadioPlugin` 能力接口的 .NET 类库。引用这个 SDK 包，写完打包成 zip，就能被主程序加载。
 
-- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.0.0.nupkg`
+- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.1.0.nupkg`
 - 契约版本：1（包版本跟着契约走，契约加一包就升一位）
 
 ## 快速开始
@@ -20,7 +20,7 @@
        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
      </PropertyGroup>
      <ItemGroup>
-       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.0.0" />
+       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.1.0" />
      </ItemGroup>
    </Project>
    ```
@@ -35,11 +35,14 @@
 | 接口 | 干什么 | 宿主在哪用它 |
 |---|---|---|
 | `ILyricsPlugin` | 按歌名/歌手找带时间轴的歌词 | 桌面歌词卡片、逐字扫描 |
+| `ILyricsImporter` | 把本地字幕文件（ASS、SRT、LRC…）解析成歌词 | 正在播放页「导入字幕」，按声明的扩展名路由 |
 | `IVideoSourcePlugin` | 搜索视频、下载成文件 | 场景页的视频源、下载建场景 |
 | `IVideoPanelPlugin` | 在视频源基础上加列分 P、预览地址、按集下载 | 选片面板（检测不到就退化成整条下载） |
 | `ILoginPlugin` | 生成二维码、轮询扫码状态 | 设置页的「扫码登录」按钮 |
 
 可选接口不需要全实现：`IVideoPanelPlugin` 继承自 `IVideoSourcePlugin`，实现了它主程序自动升级成面板模式。
+
+歌词这条线，主程序只认 `LyricDocument`（带时间轴的行，有逐字表就逐字扫描）——词从哪来主程序一概不管。所以歌词类插件随便做形态：只在线搜（实现 `ILyricsPlugin`）、只做文件导入（实现 `ILyricsImporter`）、两个都做、或者做一种主程序没想到的新来源（剪贴板、手打、别的软件导出），只要产出 `LyricDocument` 就能上桌面歌词。ASS 的 `\k` 卡拉OK标签天然带逐字时长，映射成 `LyricWord` 就能吃到逐字扫描；SRT 没有逐字，整句常亮。
 
 ## 插件能干什么
 
