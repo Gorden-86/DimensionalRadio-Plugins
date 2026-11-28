@@ -2,8 +2,8 @@
 
 次元电台的插件 = 一个实现 `IRadioPlugin` 能力接口的 .NET 类库。引用这个 SDK 包，写完打包成 zip，就能被主程序加载。
 
-- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.1.0.nupkg`
-- 契约版本：1（包版本跟着契约走，契约加一包就升一位）
+- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.2.0.nupkg`
+- 契约版本：2（包版本跟着契约走，契约加一包就升一位）
 
 ## 快速开始
 
@@ -20,7 +20,7 @@
        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
      </PropertyGroup>
      <ItemGroup>
-       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.1.0" />
+       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.2.0" />
      </ItemGroup>
    </Project>
    ```
@@ -34,7 +34,7 @@
 
 | 接口 | 干什么 | 宿主在哪用它 |
 |---|---|---|
-| `ILyricsPlugin` | 按歌名/歌手找带时间轴的歌词 | 桌面歌词卡片、逐字扫描 |
+| `ILyricsPlugin` | 歌词源：换歌广播来了去找词，找到了主动提交 | 桌面歌词卡片、逐字扫描 |
 | `ILyricsImporter` | 把本地字幕文件（ASS、SRT、LRC…）解析成歌词 | 正在播放页「导入字幕」，按声明的扩展名路由 |
 | `IVideoSourcePlugin` | 搜索视频、下载成文件 | 场景页的视频源、下载建场景 |
 | `IVideoPanelPlugin` | 在视频源基础上加列分 P、预览地址、按集下载 | 选片面板（检测不到就退化成整条下载） |
@@ -42,7 +42,43 @@
 
 可选接口不需要全实现：`IVideoPanelPlugin` 继承自 `IVideoSourcePlugin`，实现了它主程序自动升级成面板模式。
 
-歌词这条线，主程序只认 `LyricDocument`（带时间轴的行，有逐字表就逐字扫描）——词从哪来主程序一概不管。所以歌词类插件随便做形态：只在线搜（实现 `ILyricsPlugin`）、只做文件导入（实现 `ILyricsImporter`）、两个都做、或者做一种主程序没想到的新来源（剪贴板、手打、别的软件导出），只要产出 `LyricDocument` 就能上桌面歌词。ASS 的 `\k` 卡拉OK标签天然带逐字时长，映射成 `LyricWord` 就能吃到逐字扫描；SRT 没有逐字，整句常亮。
+## 歌词源：广播怎么收、词怎么交
+
+主程序只认一样东西：`LyricDocument`（带时间轴的行，有逐字表就逐字扫描）。
+词从哪来、怎么找、找多快，主程序一概不管——网络搜的、本地文件解析的、缓存翻出来的都一样。
+
+流程是**广播-提交**：
+
+1. **收广播**：每次换歌，主程序给**每个**装着的歌词源调一次 `OnTrackChangedAsync(request, sink)`。
+   `request` 里是歌名、歌手、专辑、时长；`sink` 是这次广播专用的提交通道。
+   多个歌词源并存互不认识——A 搜 LRC、B 解析 ASS，主程序眼里都是歌词源。
+2. **自己找**：宿主不等结果，你在方法里随便跑异步——慢工出细活随它去。
+   找不到就什么都不交，返回 false；找到了返回 true。
+3. **交词**：拿 `sink.Submit(document)` 交一份 `LyricDocument`。
+   同一首歌里后交的顶先交的，切歌之后才交到的直接丢弃，所以早交晚交都安全。
+   所有源都交完还没人交词，主程序显示"这首歌没有歌词"。
+
+```csharp
+public sealed class MyLyricsPlugin : ILyricsPlugin
+{
+    public int ContractVersion => IRadioPlugin.CurrentContractVersion;
+    // Id / Name / Description / Version / Settings / Initialize 照基座接口写
+
+    public async Task<bool> OnTrackChangedAsync(LyricRequest request, ILyricsSink sink,
+        CancellationToken cancellationToken = default)
+    {
+        var document = await SearchSomewhereAsync(request.Title, request.Artist, cancellationToken);
+        if (document is null) return false;
+
+        sink.Submit(document);
+        return true;
+    }
+}
+```
+
+本地字幕导入（`ILyricsImporter`）不走广播——那是用户主动选文件，宿主按你声明的
+`Extensions` 把路径递给你，`ParseAsync` 返回 `LyricDocument` 就行。ASS 的 `\k`
+卡拉OK标签天然带逐字时长，映射成 `LyricWord` 就能吃到逐字扫描；SRT 没有逐字，整句常亮。
 
 ## 插件能干什么
 
