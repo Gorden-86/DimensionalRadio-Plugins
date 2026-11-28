@@ -2,8 +2,8 @@
 
 次元电台的插件 = 一个实现 `IRadioPlugin` 能力接口的 .NET 类库。引用这个 SDK 包，写完打包成 zip，就能被主程序加载。
 
-- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.2.0.nupkg`
-- 契约版本：2（包版本跟着契约走，契约加一包就升一位）
+- SDK 包：本目录的 `DimensionalRadio.Plugin.Abstractions.1.3.0.nupkg`
+- 契约版本：1（契约号和包版本是两回事：契约是协议，包是工具；契约改了包就升一位）
 
 ## 快速开始
 
@@ -20,13 +20,24 @@
        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
      </PropertyGroup>
      <ItemGroup>
-       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.2.0" />
+       <PackageReference Include="DimensionalRadio.Plugin.Abstractions" Version="1.3.0" />
      </ItemGroup>
    </Project>
    ```
 
 2. 实现一个能力接口（见下），`Id` 全仓库唯一，小写短横线。
+   **契约声明不用写**：SDK 包自带 build targets，编译时自动给程序集打上 `PluginContract` 声明。
 3. 用主程序仓库的 `scripts/pack-plugin.ps1` 打包发布（见文末）。
+
+## 契约版本怎么运作
+
+插件 DLL 的程序集上带一个契约声明，主程序 Abstractions.dll 上也有一个。
+加载器在实例化**之前**比对两个数字：对不上直接拒载，DLL 里的代码一行都不执行——
+所以老插件不会炸出一堆 `Method not found`，只会得到一句「契约版本不一致」。
+
+- 声明数字由 SDK 自动注入（包里的 build targets），升级 SDK 包 = 声明跟着升级。
+- 给接口改签名、删成员 = 契约版本加一，同时升 SDK 包版本；旧插件被拒载，作者跟进升级。
+- 加**可选**能力接口（像 `IVideoPanelPlugin` 那样单独一个接口）不用动契约版本，老插件照样装。
 
 ## 能力接口一览
 
@@ -39,6 +50,7 @@
 | `IVideoSourcePlugin` | 搜索视频、下载成文件 | 场景页的视频源、下载建场景 |
 | `IVideoPanelPlugin` | 在视频源基础上加列分 P、预览地址、按集下载 | 选片面板（检测不到就退化成整条下载） |
 | `ILoginPlugin` | 生成二维码、轮询扫码状态 | 设置页的「扫码登录」按钮 |
+| `IDesktopPanelPlugin` | 往桌面摆常驻装饰窗（频谱、氛围灯这类） | 启动、重载、设置保存后调 `RefreshPanel`，摆不摆插件自己定 |
 
 可选接口不需要全实现：`IVideoPanelPlugin` 继承自 `IVideoSourcePlugin`，实现了它主程序自动升级成面板模式。
 
@@ -61,8 +73,8 @@
 ```csharp
 public sealed class MyLyricsPlugin : ILyricsPlugin
 {
-    public int ContractVersion => IRadioPlugin.CurrentContractVersion;
     // Id / Name / Description / Version / Settings / Initialize 照基座接口写
+    // 契约声明由 SDK 自动注入，不用手写
 
     public async Task<bool> OnTrackChangedAsync(LyricRequest request, ILyricsSink sink,
         CancellationToken cancellationToken = default)
@@ -86,10 +98,14 @@ public sealed class MyLyricsPlugin : ILyricsPlugin
 - **发网络请求**：搜索、下载、登录轮询，都是插件自己的事，用自带 HTTP 客户端随便发。
 - **带自己的 NuGet 依赖**：DLL 会一起进包、一起装进插件目录，加载时自动解析。
 - **声明设置项**：`Settings` 里列出来，宿主照着画设置页，值持久化由宿主负责。
-- **读自己的设置**：`IPluginContext.GetSetting(key)`，没配过返回默认值。
+  类型有文本、开关、下拉（Choice）、颜色（Color，宿主渲染成调色板）；
+  项可以带 `Group` 收进抽屉、`ShowWhen="key=值"` 做条件显示（选了自定义才亮出调色板这类）。
+- **读自己的设置**：`IPluginContext.GetSetting(key)`，没配过返回默认值；`SetSetting` 直接写回，
+  宿主负责落盘和同步设置页控件（桌面面板上的锁钮、右键菜单就靠它）。
+- **拿播放上下文**：`IPluginContext.GetCoverImage()` 拿当前封面字节、`GetThemeAccent()` 拿程序强调色。
 - **写日志**：`IPluginContext.Log(message)`，落在主程序日志里，带插件 Id 前缀。
 
-生命周期就三步：加载（MD5 + 契约版本都过关）→ `Initialize(context)` 调一次 → 之后宿主按接口按需调方法。卸载/更新时整个加载上下文被回收，不存在后台常驻。
+生命周期就三步：加载（MD5 + 契约声明都过关）→ `Initialize(context)` 调一次 → 之后宿主按接口按需调方法。卸载/更新时整个加载上下文被回收，不存在后台常驻。
 
 ## 插件不允许干什么
 
@@ -97,7 +113,7 @@ public sealed class MyLyricsPlugin : ILyricsPlugin
 
 - **没登记的 DLL 不执行**。插件目录里来路不明的文件直接拒绝加载，界面会明示「未在仓库登记」。
 - **MD5 对不上不执行**。文件被换过、下坏了，一律「核验错误，请重新下载」。
-- **契约版本不一致不执行**。你声明 `ContractVersion = 2`、主程序还是 1，直接跳过。
+- **契约声明不一致不执行**。你声明的版本和主程序对不上，在实例化之前就被拒载，代码一行不跑。
 - **拿不到宿主内部对象**。数据库、壁纸后端、播放器、主窗口，都不在插件能摸到的范围里；插件和宿主的全部通道就是 `IPluginContext`。
 - **没有文件系统自由**。唯一允许写的位置是宿主调 `DownloadAsync` 时传入的目标目录；要持久化只能走自己的设置项。
 - **不能注入界面**。设置页、插件中心、选片面板都由宿主按接口渲染，插件给数据不给控件。
@@ -123,8 +139,14 @@ D:\...\DimensionalRadio\scripts\pack-plugin.ps1 `
 - 依赖 DLL 也逐一登记 MD5；下载端的包级 `md5` 是 zip 本体的校验。
 - `version` 要和程序集版本一致，客户端拿它判断有没有更新。
 
-## 契约版本策略
+## 插件分类
 
-- `IRadioPlugin.CurrentContractVersion` 是加载开关：主程序只加载声明版本一致的插件。
-- 给接口加成员、改签名 = 契约版本加一，同时升 SDK 包版本；旧插件被跳过，作者跟进升级。
-- 加**可选**能力接口（像 `IVideoPanelPlugin` 那样单独一个接口）不用动契约版本，老插件照样装。
+仓库清单里 `kind` 只有这几种，别发明新的：
+
+| kind | 显示 | 装到哪 |
+|---|---|---|
+| `wallpaper` | 壁纸源 | 插件目录，实现 `IVideoSourcePlugin` |
+| `lyrics` | 歌词源 | 插件目录，实现 `ILyricsPlugin` / `ILyricsImporter` |
+| `plugin` | 扩展功能 | 插件目录，桌面面板等其余能力 |
+| `theme` | 样式包 | 主题目录，纯 JSON 不是 DLL |
+| `tool` / `runtime` | 不显示分类 | 装独立目录，不参与加载 |

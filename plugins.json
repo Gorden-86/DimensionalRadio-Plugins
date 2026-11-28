@@ -6,11 +6,11 @@
       "name": "哔哩哔哩视频源",
       "description": "搜索 B 站视频，下载后直接当桌面场景。登录后可取 720P 以上。",
       "author": "Dimensional Radio",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "kind": "wallpaper",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Bilibili.dll",
-      "fileMd5": "f93124354425b63885160a245991bc28",
+      "fileMd5": "98643fac8b1bb17a091f6c379a16dce6",
       "deps": [
         {
           "file": "QRCoder.dll",
@@ -34,20 +34,20 @@
         }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
-      "md5": "c692b706591a18c1c2e644b3ae9225aa",
-      "size": 6794566,
-      "notes": "1.1.1：适配契约 2.0 重新编译，功能不变。"
+      "md5": "f1001a2e6d6bcd8f02e4d74e61b2a5ba",
+      "size": 6794569,
+      "notes": "1.1.2：适配契约 v1 重新编译，功能不变。"
     },
     {
       "id": "lyrics",
       "name": "在线歌词",
       "description": "按歌名和歌手找歌词，支持网易云、QQ 音乐、酷狗和 LRCLIB。",
       "author": "Dimensional Radio",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "kind": "lyrics",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Lyrics.dll",
-      "fileMd5": "036edde5b3c0c80d0be43a59e1e124b0",
+      "fileMd5": "a30e5a3300886f24c69f9b5b9cb6e1c5",
       "deps": [
         { "file": "Lyricify.Lyrics.Helper.dll", "md5": "cfe04e0b3ce3f546bdbd2265423f6418" },
         { "file": "OpenccNetLib.dll", "md5": "1325aa7cae97ab7acae549ce34edaca1" },
@@ -60,9 +60,31 @@
         { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/lyrics-plugin.zip",
-      "md5": "4463b5145470a579c871fed193c3e955",
-      "size": 8127014,
-      "notes": "1.3.1：网易云的空罗马音/译文用双斜杠占位，现在正确当作没有，不再上屏。"
+      "md5": "330fcb89df0ee43cfa131e4021d305e5",
+      "size": 8126993,
+      "notes": "1.3.2：适配契约 v1 重新编译，功能不变。"
+    },
+    {
+      "id": "spectrum",
+      "name": "桌面频谱",
+      "description": "在桌面上摆一条实时频谱，抓系统正在放的声音，样式参数都能调。",
+      "author": "Dimensional Radio",
+      "version": "1.0.0",
+      "kind": "plugin",
+      "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
+      "file": "DimensionalRadio.Plugins.Spectrum.dll",
+      "fileMd5": "a6ea7a61397a16fa225b314be9794b59",
+      "deps": [
+        { "file": "Microsoft.Windows.SDK.NET.dll", "md5": "a00b91c2e00b89e387705af95b72bd6e" },
+        { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" },
+        { "file": "NAudio.Core.dll", "md5": "3f50ce0191964cdd6e88f96742dd3807" },
+        { "file": "NAudio.Wasapi.dll", "md5": "894879f74ae32a3aa5ff7a7084337680" },
+        { "file": "System.Numerics.Tensors.dll", "md5": "cde360ab74afb9b6d539040f66549e0c" }
+      ],
+      "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/spectrum-plugin.zip",
+      "md5": "c1919be2c33d3e873da48dc7d99b1145",
+      "size": 7077603,
+      "notes": "1.0.0：首个发布版本。柱状/线状频谱，颜色五来源（默认、系统强调色、封面主色、程序配色、自定义调色板），可锁定防误拖。"
     },
     {
       "id": "mpv",

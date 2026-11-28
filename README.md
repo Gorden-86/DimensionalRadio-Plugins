@@ -37,11 +37,15 @@
 | `description` | 是 | 一句话说明 |
 | `author` | 是 | 作者 |
 | `version` | 是 | 插件版本，客户端只展示 |
-| `kind` | 是 | `wallpaper` 壁纸源 / `work` 作品源 / `theme` 样式包 / `extension` 扩展功能 |
+| `kind` | 是 | `wallpaper` 壁纸源 / `work` 作品源 / `lyrics` 歌词源 / `theme` 样式包 / `plugin` 扩展功能；`tool`、`runtime` 是依赖包，装独立目录不显示分类 |
 | `homepage` | 是 | 主页或发布页，没有下载地址时点按钮会打开它 |
 | `downloadUrl` | 否 | 插件包直链。给了才会出现「下载」按钮 |
-| `md5` | 给了下载地址时必填 | 插件包的 MD5。缺失或对不上，客户端会拒绝下载 |
+| `md5` | 给了下载地址时必填 | 插件包 zip 的 MD5。缺失或对不上，客户端会拒绝下载 |
 | `size` | 否 | 字节数，仅用于展示 |
+| `file` | DLL 插件必填 | 插件本体 DLL 文件名 |
+| `fileMd5` | 跟 `file` 一起 | 本体 DLL 的 MD5，加载前核验 |
+| `deps` | DLL 插件有依赖时 | 依赖 DLL 清单，每项 `file` + `md5`，同样逐一核验 |
+| `installTo` | 仅 `tool`/`runtime` | 装到数据目录下的哪个子目录 |
 
 ## MD5 怎么算
 
