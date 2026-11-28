@@ -10,7 +10,7 @@
       "kind": "wallpaper",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Bilibili.dll",
-      "fileMd5": "98643fac8b1bb17a091f6c379a16dce6",
+      "fileMd5": "7c3bf3b0fd4e68311e9e2b877c0cb0ca",
       "deps": [
         {
           "file": "QRCoder.dll",
@@ -34,8 +34,8 @@
         }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/bilibili-plugin.zip",
-      "md5": "f1001a2e6d6bcd8f02e4d74e61b2a5ba",
-      "size": 6794569,
+      "md5": "806aec8ee39c816ae7d87dd6fd17bd31",
+      "size": 6795532,
       "notes": "1.1.2：适配契约 v1 重新编译，功能不变。"
     },
     {
@@ -47,7 +47,7 @@
       "kind": "lyrics",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Lyrics.dll",
-      "fileMd5": "a30e5a3300886f24c69f9b5b9cb6e1c5",
+      "fileMd5": "d115c2cd066bc8361e93bb1329546c35",
       "deps": [
         { "file": "Lyricify.Lyrics.Helper.dll", "md5": "cfe04e0b3ce3f546bdbd2265423f6418" },
         { "file": "OpenccNetLib.dll", "md5": "1325aa7cae97ab7acae549ce34edaca1" },
@@ -60,8 +60,8 @@
         { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/lyrics-plugin.zip",
-      "md5": "330fcb89df0ee43cfa131e4021d305e5",
-      "size": 8126993,
+      "md5": "f5fc7aa6a2ce4fae0ab7ffe5eabd2db6",
+      "size": 8127412,
       "notes": "1.3.2：适配契约 v1 重新编译，功能不变。"
     },
     {
@@ -73,7 +73,7 @@
       "kind": "plugin",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Spectrum.dll",
-      "fileMd5": "a6ea7a61397a16fa225b314be9794b59",
+      "fileMd5": "8967371b1da69c0e1fc19f90784d155d",
       "deps": [
         { "file": "Microsoft.Windows.SDK.NET.dll", "md5": "a00b91c2e00b89e387705af95b72bd6e" },
         { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" },
@@ -82,8 +82,8 @@
         { "file": "System.Numerics.Tensors.dll", "md5": "cde360ab74afb9b6d539040f66549e0c" }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/spectrum-plugin.zip",
-      "md5": "c1919be2c33d3e873da48dc7d99b1145",
-      "size": 7077603,
+      "md5": "e6c9d6d6108bbb6542bb9b95c95e61df",
+      "size": 7077886,
       "notes": "1.0.0：首个发布版本。柱状/线状频谱，颜色五来源（默认、系统强调色、封面主色、程序配色、自定义调色板），可锁定防误拖。"
     },
     {

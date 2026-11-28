@@ -51,6 +51,7 @@
 | `IVideoPanelPlugin` | 在视频源基础上加列分 P、预览地址、按集下载 | 选片面板（检测不到就退化成整条下载） |
 | `ILoginPlugin` | 生成二维码、轮询扫码状态 | 设置页的「扫码登录」按钮 |
 | `IDesktopPanelPlugin` | 往桌面摆常驻装饰窗（频谱、氛围灯这类） | 启动、重载、设置保存后调 `RefreshPanel`，摆不摆插件自己定 |
+| `IOpenSourcePlugin` | 声明插件引入的第三方开源库 | 设置页「开源许可」弹窗的「插件使用的开源项目」分组 |
 
 可选接口不需要全实现：`IVideoPanelPlugin` 继承自 `IVideoSourcePlugin`，实现了它主程序自动升级成面板模式。
 
@@ -97,6 +98,8 @@ public sealed class MyLyricsPlugin : ILyricsPlugin
 - **实现能力接口**：宿主按需调用，结果交给宿主渲染。
 - **发网络请求**：搜索、下载、登录轮询，都是插件自己的事，用自带 HTTP 客户端随便发。
 - **带自己的 NuGet 依赖**：DLL 会一起进包、一起装进插件目录，加载时自动解析。
+  **引入第三方开源库必须声明**：实现 `IOpenSourcePlugin`，把库名、版本、协议、主页、用途一条一条列进
+  `OpenSourceNotices`，宿主汇总进开源许可列表（按插件分组标注）。SDK 包和系统运行时不用声明。
 - **声明设置项**：`Settings` 里列出来，宿主照着画设置页，值持久化由宿主负责。
   类型有文本、开关、下拉（Choice）、颜色（Color，宿主渲染成调色板）；
   项可以带 `Group` 收进抽屉、`ShowWhen="key=值"` 做条件显示（选了自定义才亮出调色板这类）。
