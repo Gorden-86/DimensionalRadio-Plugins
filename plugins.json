@@ -43,11 +43,11 @@
       "name": "在线歌词",
       "description": "按歌名和歌手找歌词，支持网易云、QQ 音乐、酷狗和 LRCLIB。",
       "author": "Dimensional Radio",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "kind": "lyrics",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Lyrics.dll",
-      "fileMd5": "d8f810d1fe11163d6684ed09d35ce728",
+      "fileMd5": "036edde5b3c0c80d0be43a59e1e124b0",
       "deps": [
         { "file": "Lyricify.Lyrics.Helper.dll", "md5": "cfe04e0b3ce3f546bdbd2265423f6418" },
         { "file": "OpenccNetLib.dll", "md5": "1325aa7cae97ab7acae549ce34edaca1" },
@@ -60,9 +60,9 @@
         { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/lyrics-plugin.zip",
-      "md5": "542ca8db0aeff64750ea2ed45475d494",
-      "size": 8126936,
-      "notes": "1.3.0：跟契约 2.0 走，换歌改成广播-提交，多个歌词源可以并存。"
+      "md5": "4463b5145470a579c871fed193c3e955",
+      "size": 8127014,
+      "notes": "1.3.1：网易云的空罗马音/译文用双斜杠占位，现在正确当作没有，不再上屏。"
     },
     {
       "id": "mpv",
