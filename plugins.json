@@ -43,11 +43,11 @@
       "name": "在线歌词",
       "description": "按歌名和歌手找歌词，支持网易云、QQ 音乐、酷狗和 LRCLIB。",
       "author": "Dimensional Radio",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "kind": "lyrics",
       "homepage": "https://github.com/Gorden-86/DimensionalRadio-Plugins",
       "file": "DimensionalRadio.Plugins.Lyrics.dll",
-      "fileMd5": "9d529af05d723e169be2e472528cd5a4",
+      "fileMd5": "4e817f7fec48eb1c9904b18e77768aa2",
       "deps": [
         { "file": "Lyricify.Lyrics.Helper.dll", "md5": "cfe04e0b3ce3f546bdbd2265423f6418" },
         { "file": "OpenccNetLib.dll", "md5": "1325aa7cae97ab7acae549ce34edaca1" },
@@ -60,9 +60,9 @@
         { "file": "WinRT.Runtime.dll", "md5": "edb1f8d15fe41838cd449141187ae032" }
       ],
       "downloadUrl": "https://raw.githubusercontent.com/Gorden-86/DimensionalRadio-Plugins/main/packages/lyrics-plugin.zip",
-      "md5": "f5c126caacca45f376d14b70c80b7e65",
-      "size": 8125180,
-      "notes": "1.1.0：加「桌面显示歌词」开关；歌词显示在任务栏上方的小卡片里。"
+      "md5": "e6b737b5187afa898be9ae115162281f",
+      "size": 8126858,
+      "notes": "1.2.0：设置里可以开关桌面歌词。"
     },
     {
       "id": "mpv",

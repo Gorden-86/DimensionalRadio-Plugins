@@ -3,6 +3,11 @@
 次元电台（Dimensional Radio）读取本仓库的 [`plugins.json`](plugins.json)，在「插件中心」里列出可用插件。
 客户端只读清单；**下载插件包时会校验 MD5**，对不上就丢弃。
 
+## 开发插件
+
+想写自己的插件（歌词源、视频源、扫码登录），看 [sdk/README.md](sdk/README.md)：
+契约 NuGet 包、能力接口、能干什么/不能干什么、打包发布一条龙都在那。
+
 ## 清单格式
 
 ```json
